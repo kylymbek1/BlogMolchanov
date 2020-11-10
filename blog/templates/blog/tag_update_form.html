@@ -1,12 +1,12 @@
 {% extends 'blog/base_blog.html' %}
 
 {% block title %}
-    Tag Create - {{ block.super }}
+    Edit tag "{{ tag.title|title }}" - {{ block.super }}
 {% endblock %}
 
 {% block content %}
 
-    <form action="{% url 'tag_create' %}" method="post">
+    <form action="{% url 'tag_update' slug=tag.slug %}" method="post">
 
         {% csrf_token %}
 
@@ -24,8 +24,8 @@
         {% endfor %}
 
 
-        <button type="submit" class="btn btn-primary">Tag Create</button>
+        <button type="submit" class="btn btn-primary">Tag Update</button>
 
     </form>
-    
+
 {% endblock %}
